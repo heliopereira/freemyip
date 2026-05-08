@@ -1,52 +1,104 @@
 # FreeMyIP Integration for Home Assistant
 
-Custom integration to update a `*.freemyip.com` dynamic DNS domain from Home Assistant.
+![FreeMyIP Logo](images/freemyip_logo.png)
 
-## What this port does
+Custom Home Assistant integration to keep a `*.freemyip.com` domain updated with your current public IPv4/IPv6.
 
-- Uses the FreeMyIP updater endpoint: `https://freemyip.com/update`
-- Uses FreeMyIP check IP endpoint: `https://freemyip.com/checkip`
-- Authenticates with `token` + `domain` (no API key required)
-- Supports economy mode (update only when IP changed)
-- Supports optional IPv6 update when available
+## Overview
+
+This integration is focused on one job: reliable dynamic DNS updates for FreeMyIP.
+
+- Uses `https://freemyip.com/update` for domain updates
+- Uses `https://freemyip.com/checkip` for public IPv4 detection
+- Supports IPv6 detection/update when enabled
+- Uses `token` + `domain` only (no API key)
+- Supports economy mode (update only when IP changes)
 
 ## Requirements
 
-- Home Assistant with `custom_components`
-- A FreeMyIP dynamic domain
-- Your FreeMyIP update token
+Before installing, make sure you have:
 
-## Installation
+1. A running Home Assistant instance
+2. Access to `custom_components` folder
+3. A FreeMyIP domain (example: `myhome.freemyip.com`)
+4. A valid FreeMyIP update token
 
-1. Copy `custom_components/freemyip` to your HA config folder as `custom_components/freemyip`.
-2. Restart Home Assistant.
-3. Go to **Settings > Devices & Services > Add Integration**.
-4. Search for **FreeMyIP**.
-5. Fill in:
-   - Domain (example: `myhome.freemyip.com`)
-   - Token
-   - Economy mode (optional)
-   - IPv6 support (optional)
-   - Update interval
+## Installation (Manual)
+
+1. Download or clone this repository.
+2. Copy the folder `custom_components/freemyip` to your Home Assistant config path:
+   - Final path must be: `config/custom_components/freemyip`
+3. Restart Home Assistant.
+4. In Home Assistant, go to:
+   - `Settings` -> `Devices & Services` -> `Add Integration`
+5. Search for `FreeMyIP` and open it.
+6. Fill in the form fields:
+   - `Domain`: your FreeMyIP domain
+   - `Token`: secret token value
+   - `Economy mode`: optional
+   - `IPv6 support`: optional
+   - `Update interval`: minutes (0 disables scheduled updates)
+7. Finish setup and confirm entities are created.
+
+## Entities Created
+
+The integration creates short-name sensors under device `FreeMyIP <your-domain>`:
+
+- `Status`
+- `IPv4`
+- `IPv6` (when enabled)
+- `Last Update`
 
 ## Service
 
-- `freemyip.refresh`: force a refresh/update.
+Service available:
 
-Optional field:
+- `freemyip.refresh`
 
-- `economy` (boolean): only perform updater call when IP changed.
+Service field:
 
-## Notes about FreeMyIP behavior
+- `economy` (`boolean`): when `true`, only updates when detected IP changed
 
-- Updater result returns `OK` or `ERROR`.
-- `verbose=yes` is used by the integration for diagnostics.
-- For explicit target IP updates, FreeMyIP accepts `myip` (IPv4 or IPv6).
+Example service call in Developer Tools:
 
-## Debug logs
+```yaml
+service: freemyip.refresh
+data:
+  economy: true
+```
+
+## How Updates Work
+
+- FreeMyIP updater returns `OK` or `ERROR`
+- Integration uses `verbose=yes` internally for better diagnostics
+- Integration sends `myip` when updating explicit detected IPv4/IPv6
+
+## Troubleshooting
+
+Enable debug logs in `configuration.yaml`:
 
 ```yaml
 logger:
   logs:
     custom_components.freemyip: debug
 ```
+
+Then restart Home Assistant and check logs in:
+
+- `Settings` -> `System` -> `Logs`
+
+## Branding Assets
+
+Project logo file location:
+
+- `images/freemyip_logo.png`
+
+If you replace the logo, keep the same filename/path so README references continue to work.
+
+## Support the Project
+
+If this integration helps you, consider supporting development:
+
+- Ko-fi: `https://ko-fi.com/heliopereira`
+
+Thank you for supporting maintenance, fixes, and new features.
