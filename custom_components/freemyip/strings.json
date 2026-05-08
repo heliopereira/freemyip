@@ -1,0 +1,61 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Integration wurde bereits konfiguriert.",
+      "single_instance_allowed": "Nur eine Konfiguration ist erlaubt."
+    },
+    "error": {
+      "unauthorized": "Der Account Update Token ist ungültig.",
+      "retry_limit_exceeded": "Verbindung zu FreeMyIP nach mehreren Versuchen fehlerhaft. Bitte überprüfen Sie Ihr Netzwerk.",
+      "invalid_domain": "Die eingegebene Domain hat ein ungültiges Format.",
+      "invalid_update_token_format": "Das Update-Token hat ein ungültiges Format. Bitte den geheimen Token-Wert einfügen (nicht den Namen/Label).",
+      "cannot_connect": "Netzwerkfehler: Verbindung zu FreeMyIP konnte nicht hergestellt werden. Bitte überprüfen Sie Ihre Internetverbindung."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Economy-Modus aktivieren (Updates nur bei IP-Änderung, geprüft über öffentliche IPv4/IPv6-IP-Checks)",
+          "enable_ipv6": "IPv6-Unterstützung aktivieren (falls verfügbar)",
+          "domain": "Domain",
+          "scan_interval": "Aktualisierungsintervall (0-120 Minuten, 0=deaktiviert)",
+          "token": "Account Update Token (geheimer Wert)"
+        },
+        "description": "FreeMyIP bietet Dynamic-DNS-Updates. Erkannte öffentliche IPs: IPv4 `{ipv4}` | IPv6 `{ipv6}`. IPv6-Unterstützung verfügbar: `{ipv6_supported}`. Verwenden Sie beim Update-Token den geheimen Token-Wert aus FreeMyIP.",
+        "title": "FreeMyIP Dynamic DNS"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Economy-Modus aktivieren (Updates nur bei IP-Änderung, geprüft über öffentliche IPv4/IPv6-IP-Checks)",
+          "enable_ipv6": "IPv6-Unterstützung aktivieren (falls verfügbar)",
+          "scan_interval": "Aktualisierungsintervall (0-120 Minuten, 0=deaktiviert)",
+          "token": "Account Update Token (geheimer Wert)"
+        },
+        "description": "Konfigurieren Sie Aktualisierungsintervall, Economy-Modus, IPv6-Unterstützung und den Update-Token. Verwenden Sie den geheimen Token-Wert. Erkannte öffentliche IPs: IPv4 `{ipv4}` | IPv6 `{ipv6}`. IPv6-Unterstützung verfügbar: `{ipv6_supported}`.",
+        "title": "FreeMyIP Konfiguration"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "description": "IPv4/IPv6-Adresse für die konfigurierte Domain manuell aktualisieren.",
+      "fields": {
+        "economy": {
+          "description": "Economy-Modus aktivieren (Updates nur bei IP-Änderung, geprüft über öffentliche IPv4/IPv6-IP-Checks)",
+          "name": "Economy-Modus"
+        }
+      },
+      "name": "IP-Adresse aktualisieren"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Wildcard-Unterstützung"
+      }
+    }
+  }
+}

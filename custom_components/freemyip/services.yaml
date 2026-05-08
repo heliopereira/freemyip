@@ -1,0 +1,9 @@
+refresh:
+  name: "IP-Adresse aktualisieren"
+  description: "Atualiza os enderecos IPv4/IPv6 no FreeMyIP para o dominio configurado."
+  fields:
+    economy:
+      name: "Economy-Modus"
+      description: "Ativa modo economico para atualizar apenas quando houver mudanca de IP."
+      selector:
+        boolean:

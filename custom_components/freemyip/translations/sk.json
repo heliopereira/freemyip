@@ -1,0 +1,62 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Integrácia už bola nakonfigurovaná",
+      "single_instance_allowed": "Povolená je iba jedna konfigurácia."
+    },
+    "error": {
+      "domain_not_found": "Zadana domena nebola najdena vo vasom ucte. Skontrolujte zadanie.",
+      "unauthorized": "Token aktualizácie účtu je neplatný.",
+      "retry_limit_exceeded": "Zlyhalo pripojenie k FreeMyIP po viacerých pokusoch. Skontrolujte svoje sieťové pripojenie.",
+      "invalid_domain": "Zadana domena ma neplatny format.",
+      "invalid_update_token_format": "Neplatný formát aktualizačného tokenu. Vložte tajnú hodnotu tokenu (nie názov/štítok).",
+      "cannot_connect": "Chyba siete: Nepodarilo sa nadviazať spojenie s FreeMyIP. Skontrolujte svoje pripojenie k internetu."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Povoliť ekonomický režim (aktualizácie iba pri zmene IP, overené cez verejné IPv4/IPv6 služby kontroly IP)",
+          "enable_ipv6": "Povoliť podporu IPv6 (ak je dostupná)",
+          "domain": "Doména",
+          "scan_interval": "Interval aktualizácie (0–120 minút, 0=vypnuté)",
+          "token": "Token aktualizácie účtu (tajná hodnota)"
+        },
+        "description": "FreeMyIP poskytuje Dynamic DNS aktualizacie. Zistene verejne IP: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Dostupnost podpory IPv6: `{ipv6_supported}`. Do pola tokenu vlozte tajnu hodnotu tokenu z FreeMyIP (nie nazov/stítok).",
+        "title": "FreeMyIP Dynamic DNS"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Povoliť ekonomický režim (aktualizácie iba pri zmene IP, overené cez verejné IPv4/IPv6 služby kontroly IP)",
+          "enable_ipv6": "Povoliť podporu IPv6 (ak je dostupná)",
+          "scan_interval": "Interval aktualizácie (0–120 minút, 0=vypnuté)",
+          "token": "Token aktualizácie účtu (tajná hodnota)"
+        },
+        "description": "Nakonfigurujte interval aktualizácie, ekonomický režim, podporu IPv6 a aktualizačný token. Použite tajnú hodnotu tokenu (nie názov/štítok). Zistené verejné IP: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Dostupnosť podpory IPv6: `{ipv6_supported}`.",
+        "title": "Konfigurácia FreeMyIP"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "description": "Manualne aktualizovat IPv4/IPv6 adresu pre nakonfigurovanu domenu.",
+      "fields": {
+        "economy": {
+          "description": "Povoliť ekonomický režim (aktualizácie iba pri zmene IP, overené cez verejné IPv4/IPv6 služby kontroly IP)",
+          "name": "Ekonomický režim"
+        }
+      },
+      "name": "Obnoviť IP adresu"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Podpora zástupných znakov"
+      }
+    }
+  }
+}

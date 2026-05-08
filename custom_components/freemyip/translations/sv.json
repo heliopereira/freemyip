@@ -1,0 +1,61 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Kontot ar redan konfigurerat.",
+      "single_instance_allowed": "Endast en konfiguration tillats."
+    },
+    "error": {
+      "unauthorized": "Kontots uppdateringstoken ar ogiltig.",
+      "retry_limit_exceeded": "Kunde inte ansluta till FreeMyIP efter flera forsok. Kontrollera ditt natverk.",
+      "invalid_domain": "Det angivna domanet har ett ogiltigt format.",
+      "invalid_update_token_format": "Formatet for uppdateringstoken ar ogiltigt. Klistra in det hemliga tokenvardet (inte namn/etikett).",
+      "cannot_connect": "Natverksfel: kunde inte uppratta anslutning till FreeMyIP. Kontrollera din internetanslutning."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Aktivera ekonomilage (uppdaterar bara nar IP andras, kontrolleras via publika IPv4/IPv6 IP-tjanster)",
+          "enable_ipv6": "Aktivera IPv6-stod (om tillgangligt)",
+          "domain": "Doman",
+          "scan_interval": "Uppdateringsintervall (0-120 minuter, 0=inaktiverad)",
+          "token": "Kontots uppdateringstoken (hemligt varde)"
+        },
+        "description": "FreeMyIP erbjuder dynamiska DNS-uppdateringar. Upptackta publika IP: IPv4 `{ipv4}` | IPv6 `{ipv6}`. IPv6-stod tillgangligt: `{ipv6_supported}`. For uppdateringstoken, klistra in det hemliga tokenvardet fran FreeMyIP.",
+        "title": "FreeMyIP Dynamisk DNS"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Aktivera ekonomilage (uppdaterar bara nar IP andras, kontrolleras via publika IPv4/IPv6 IP-tjanster)",
+          "enable_ipv6": "Aktivera IPv6-stod (om tillgangligt)",
+          "scan_interval": "Uppdateringsintervall (0-120 minuter, 0=inaktiverad)",
+          "token": "Kontots uppdateringstoken (hemligt varde)"
+        },
+        "description": "Konfigurera uppdateringsintervall, ekonomilage, IPv6-stod och uppdateringstoken. Anvand det hemliga tokenvardet. Upptackta publika IP: IPv4 `{ipv4}` | IPv6 `{ipv6}`. IPv6-stod tillgangligt: `{ipv6_supported}`.",
+        "title": "FreeMyIP Konfiguration"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Uppdatera IP-adress",
+      "description": "Uppdatera manuellt IPv4/IPv6-adressen for den konfigurerade domanen.",
+      "fields": {
+        "economy": {
+          "name": "Ekonomilage",
+          "description": "Aktivera ekonomilage (uppdaterar bara nar IP andras, kontrolleras via publika IPv4/IPv6 IP-tjanster)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Stod for jokertecken"
+      }
+    }
+  }
+}

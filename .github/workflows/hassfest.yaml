@@ -1,0 +1,45 @@
+name: Validate with hassfest and HACS
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - ".github/**"
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref_name || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate_hacs:
+    name: "HACS Validation"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: HACS Action
+        uses: hacs/action@6f81caf1dd4cc0f615444dba4d4a3ceaa22db99c # main
+        with:
+          category: "integration"
+  validate_hassfest:
+    name: "Hassfest Validation"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: home-assistant/actions/hassfest@f6f29a7ee3fa0eccadf3620a7b9ee00ab54ec03b # master

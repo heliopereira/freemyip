@@ -1,0 +1,61 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Uchetnaia zapis uzhe nastroena.",
+      "single_instance_allowed": "Razreshena tolko odna konfiguratsiia."
+    },
+    "error": {
+      "unauthorized": "Token obnovleniia akkaunta neveren.",
+      "retry_limit_exceeded": "Ne udalos podkliuchitsia k FreeMyIP posle neskolkikh popytok. Proverte set.",
+      "invalid_domain": "Vvedennyi domen imeet nevernyi format.",
+      "invalid_update_token_format": "Format tokena obnovleniia neveren. Vstavte sekretnoe znachenie tokena (a ne ego imia/label).",
+      "cannot_connect": "Setevaia oshibka: ne udalos ustanovit soedinenie s FreeMyIP. Proverte podkliuchenie k Internetu."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Vkluchit ekonomnyi rezhim (obnovlenie tolko pri izmenenii IP, proverka cherez publichnye servisy IPv4/IPv6)",
+          "enable_ipv6": "Vkluchit podderzhku IPv6 (esli dostupno)",
+          "domain": "Domen",
+          "scan_interval": "Interval obnovleniia (0-120 minut, 0=otkliucheno)",
+          "token": "Token obnovleniia akkaunta (sekretnoe znachenie)"
+        },
+        "description": "FreeMyIP predostavliaet obnovleniia dinamicheskogo DNS. Obnaruzhennye publichnye IP: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Dostupnost IPv6: `{ipv6_supported}`. Dlia tokena obnovleniia vstavte sekretnoe znachenie tokena FreeMyIP.",
+        "title": "FreeMyIP Dynamic DNS"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Vkluchit ekonomnyi rezhim (obnovlenie tolko pri izmenenii IP, proverka cherez publichnye servisy IPv4/IPv6)",
+          "enable_ipv6": "Vkluchit podderzhku IPv6 (esli dostupno)",
+          "scan_interval": "Interval obnovleniia (0-120 minut, 0=otkliucheno)",
+          "token": "Token obnovleniia akkaunta (sekretnoe znachenie)"
+        },
+        "description": "Nastroite interval obnovleniia, ekonomnyi rezhim, podderzhku IPv6 i token obnovleniia. Ispolzujte sekretnoe znachenie tokena. Obnaruzhennye publichnye IP: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Dostupnost IPv6: `{ipv6_supported}`.",
+        "title": "Konfiguratsiia FreeMyIP"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Obnovit IP-adres",
+      "description": "Vruchnuiu obnovit IPv4/IPv6-adres dlia nastroennogo domena.",
+      "fields": {
+        "economy": {
+          "name": "Ekonomnyi rezhim",
+          "description": "Vkluchit ekonomnyi rezhim (obnovlenie tolko pri izmenenii IP, proverka cherez publichnye servisy IPv4/IPv6)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Podderzhka wildcard"
+      }
+    }
+  }
+}

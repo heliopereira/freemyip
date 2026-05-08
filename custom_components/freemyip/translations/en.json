@@ -1,0 +1,61 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Account is already configured.",
+      "single_instance_allowed": "Only a single configuration is allowed."
+    },
+    "error": {
+      "unauthorized": "The Account Update Token is invalid.",
+      "retry_limit_exceeded": "Failed to connect to FreeMyIP after multiple attempts. Please check your network.",
+      "invalid_domain": "The entered domain has an invalid format.",
+      "invalid_update_token_format": "The update token format is invalid. Please paste the secret token value (not the token name/label).",
+      "cannot_connect": "Network error: Could not establish a connection to FreeMyIP. Please check your internet connection."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Enable economy mode (updates only when IP changes, checked using public IPv4/IPv6 IP check services)",
+          "enable_ipv6": "Enable IPv6 support (if available)",
+          "domain": "Domain",
+          "scan_interval": "Update interval (0-120 minutes, 0=disabled)",
+          "token": "Account Update Token (secret value)"
+        },
+        "description": "FreeMyIP provides dynamic DNS updates. Detected public IPs: IPv4 `{ipv4}` | IPv6 `{ipv6}`. IPv6 support available: `{ipv6_supported}`. For Update Token, paste the secret token value from FreeMyIP.",
+        "title": "FreeMyIP Dynamic DNS"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Enable economy mode (updates only when IP changes, checked using public IPv4/IPv6 IP check services)",
+          "enable_ipv6": "Enable IPv6 support (if available)",
+          "scan_interval": "Update interval (0-120 minutes, 0=disabled)",
+          "token": "Account Update Token (secret value)"
+        },
+        "description": "Configure update interval, economy mode, IPv6 support, and update token. Use the secret token value. Detected public IPs: IPv4 `{ipv4}` | IPv6 `{ipv6}`. IPv6 support available: `{ipv6_supported}`.",
+        "title": "FreeMyIP Configuration"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Refresh IP Address",
+      "description": "Manually refresh the IPv4/IPv6 address for your configured domain.",
+      "fields": {
+        "economy": {
+          "name": "Economy Mode",
+          "description": "Enable economy mode (updates only when IP changes, checked using public IPv4/IPv6 IP check services)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Wildcard Support"
+      }
+    }
+  }
+}

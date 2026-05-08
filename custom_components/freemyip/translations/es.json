@@ -1,0 +1,61 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "La cuenta ya esta configurada.",
+      "single_instance_allowed": "Solo se permite una configuracion."
+    },
+    "error": {
+      "unauthorized": "El token de actualizacion de cuenta no es valido.",
+      "retry_limit_exceeded": "No se pudo conectar a FreeMyIP despues de varios intentos. Verifica tu red.",
+      "invalid_domain": "El dominio introducido tiene un formato invalido.",
+      "invalid_update_token_format": "El formato del token de actualizacion no es valido. Pega el valor secreto del token (no el nombre/etiqueta).",
+      "cannot_connect": "Error de red: no se pudo establecer conexion con FreeMyIP. Verifica tu conexion a internet."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Activar modo economico (actualiza solo cuando cambia la IP, comprobado con servicios publicos de verificacion IPv4/IPv6)",
+          "enable_ipv6": "Activar soporte IPv6 (si esta disponible)",
+          "domain": "Dominio",
+          "scan_interval": "Intervalo de actualizacion (0-120 minutos, 0=desactivado)",
+          "token": "Token de actualizacion de cuenta (valor secreto)"
+        },
+        "description": "FreeMyIP ofrece actualizaciones de DNS dinamico. IP publicas detectadas: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Soporte IPv6 disponible: `{ipv6_supported}`. Para el token de actualizacion, pega el valor secreto del token de FreeMyIP.",
+        "title": "FreeMyIP DNS Dinamico"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Activar modo economico (actualiza solo cuando cambia la IP, comprobado con servicios publicos de verificacion IPv4/IPv6)",
+          "enable_ipv6": "Activar soporte IPv6 (si esta disponible)",
+          "scan_interval": "Intervalo de actualizacion (0-120 minutos, 0=desactivado)",
+          "token": "Token de actualizacion de cuenta (valor secreto)"
+        },
+        "description": "Configura el intervalo de actualizacion, el modo economico, el soporte IPv6 y el token de actualizacion. Usa el valor secreto del token. IP publicas detectadas: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Soporte IPv6 disponible: `{ipv6_supported}`.",
+        "title": "Configuracion de FreeMyIP"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Actualizar direccion IP",
+      "description": "Actualiza manualmente la direccion IPv4/IPv6 del dominio configurado.",
+      "fields": {
+        "economy": {
+          "name": "Modo economico",
+          "description": "Activar modo economico (actualiza solo cuando cambia la IP, comprobado con servicios publicos de verificacion IPv4/IPv6)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Soporte de comodin"
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "A integração já foi configurada",
+      "single_instance_allowed": "Apenas uma configuração é permitida."
+    },
+    "error": {
+      "unauthorized": "O Token de Atualização de Conta é inválido.",
+      "retry_limit_exceeded": "Falha na conexão com FreeMyIP após várias tentativas. Verifique sua rede.",
+      "invalid_domain": "O domínio inserido tem um formato inválido.",
+      "invalid_update_token_format": "Formato do token de atualização inválido. Cole o valor secreto do token (não o nome/rótulo).",
+      "cannot_connect": "Erro de rede: Não foi possível estabelecer conexão com FreeMyIP. Verifique sua conexão com a internet."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "api_key_economy": "Ativar modo econômico (atualiza apenas quando o IP muda, verificado por serviços públicos de checagem de IP IPv4/IPv6)",
+          "enable_ipv6": "Ativar suporte a IPv6 (quando disponível)",
+          "domain": "Domínio",
+          "scan_interval": "Intervalo de atualização (0-120 minutos, 0=desativado)",
+          "token": "Token de Atualização de Conta (valor secreto)"
+        },
+        "description": "O FreeMyIP oferece atualização de DNS dinâmico. IPs públicos detectados: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Suporte IPv6 disponível: `{ipv6_supported}`. No Token de Atualização, cole o valor secreto do token do FreeMyIP.",
+        "title": "FreeMyIP DNS Dinâmico"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "api_key_economy": "Ativar modo econômico (atualiza apenas quando o IP muda, verificado por serviços públicos de checagem de IP IPv4/IPv6)",
+          "enable_ipv6": "Ativar suporte a IPv6 (quando disponível)",
+          "scan_interval": "Intervalo de atualização (0-120 minutos, 0=desativado)",
+          "token": "Token de Atualização de Conta (valor secreto)"
+        },
+        "description": "Configure o intervalo de atualização, o modo econômico, o suporte a IPv6 e o token de atualização. Use o valor secreto do token. IPs públicos detectados: IPv4 `{ipv4}` | IPv6 `{ipv6}`. Suporte IPv6 disponível: `{ipv6_supported}`.",
+        "title": "Configuração do FreeMyIP"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "description": "Atualiza manualmente os enderecos IPv4/IPv6 do dominio configurado.",
+      "fields": {
+        "economy": {
+          "description": "Ativar modo econômico (atualiza apenas quando o IP muda, verificado por serviços públicos de checagem de IP IPv4/IPv6)",
+          "name": "Modo Econômico"
+        }
+      },
+      "name": "Atualizar Endereço IP"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "wildcard": {
+        "name": "Suporte a Wildcard"
+      }
+    }
+  }
+}

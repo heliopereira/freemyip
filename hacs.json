@@ -1,0 +1,15 @@
+{
+    "name": "FreeMyIP",
+  "country": [
+    "ES",
+    "DE",
+    "PT",
+    "SV",
+    "SK",
+    "RU",
+    "US"
+  ],
+    "render_readme": true,
+    "homeassistant": "2025.5.3",
+    "hacs": "2.0.5"
+}
