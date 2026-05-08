@@ -54,6 +54,9 @@ class FreeMyIPDataUpdateCoordinator(DataUpdateCoordinator):
         await self._async_update_data(is_economy=economy)
 
     async def _async_update_data(self, is_economy: bool = False) -> dict[str, Any]:
+        if not isinstance(self.data, dict):
+            self.data = {CONF_DOMAIN: self.config_entry.data.get(CONF_DOMAIN, "")}
+
         session = async_get_clientsession(self.hass)
         domain = self.config_entry.data.get(CONF_DOMAIN, "")
         token = self.config_entry.data.get(CONF_TOKEN, "")
